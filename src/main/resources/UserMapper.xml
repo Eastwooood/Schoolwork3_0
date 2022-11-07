@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+    <select id="selectAll" resultType="com.RegisterAndLogin.User">
+        select * from user;
+    </select>
+    <select id="selectStudent" resultType="com.RegisterAndLogin.User">
+        select * from user where identity ="student";
+    </select>
+    <insert id="insertOne" parameterType="com.RegisterAndLogin.User">
+        insert into user values (#{id},#{password},#{name},#{identity},#{state});
+    </insert>
+    <update id="updateOne" parameterType="com.RegisterAndLogin.User">
+        update user set state=#{state} where id=#{id};
+    </update>
+</mapper>
